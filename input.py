@@ -1,41 +1,41 @@
-
-
-
+from Basket import *
 
 
 def orderInput():
-    menu = {}
+
+    orderInput.menu = {}
+    orderInput.amountOfItem = {}
     with open("menu.txt", "r") as file:
         for data in file.readlines():
             data = data.lower()
             data = data.strip()
             data = data.split("^")
-            menu[data[0]] = data[1]
+            orderInput.menu[data[0]] = data[1]
 
+    orderInput.amountOfItem = orderInput.menu.copy()
 
+    for value in orderInput.amountOfItem:
+        orderInput.amountOfItem[value] = 0
+
+    for value in orderInput.menu:
+        orderInput.menu[value] = float(orderInput.menu[value])
 
 
     counter = 0
-    print(menu)
+    print(orderInput.menu)
     total = []
     while counter == 0:
-        userOrder = input("Please select an item off the menu you would like to purchase")
-        if userOrder in menu:
-            amount = int(input("Please enter the amount of" + " " + userOrder + " " + "you would like to buy"))
-            print("Okay! I have added to your total")
-
-            quantityCost = float(menu[userOrder])
-
-
-            total.append(userOrder)
-            total.append(amount)
-            total.append(quantityCost*amount)
-
-            print(total)
-            continue
+        itemSelection = input("Please select an item off the order menu you would like to purchase")
+        if itemSelection in orderInput.menu:
+            itemSelectionAmount = input("Enter the amount of " + itemSelection + " would you like to add to your basket?: ")
+            orderInput.amountOfItem[itemSelection] = orderInput.amountOfItem[itemSelection] + int(itemSelectionAmount)
+            print("You now have x" + str(orderInput.amountOfItem[itemSelection]), itemSelection + " in your basket")
         else:
-            print("Sorry we dont sell that here")
-
+            print("Sorry we don't sell that here")
+        decision = input("Would you like to add anything else to your order? Y/N:")
+        if decision.upper() == "N":
+            return orderInput.menu
+            basket()
 
 
 orderInput()
