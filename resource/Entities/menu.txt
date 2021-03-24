@@ -1,0 +1,10 @@
+Coffee^2.50
+Cappichino^2.80
+Tea^2.40
+Green Tea^2.60
+Soft Drink^1.20
+Cake^3.00
+Donuts^2.70
+Fish and Chips^5.00
+Chichen Pasty^4.50
+Sausage roll^4.50 
