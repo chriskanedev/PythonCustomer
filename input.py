@@ -1,5 +1,5 @@
 from Basket import *
-from viewresipt import CreateReceipt
+
 
 
 def orderInput():
@@ -40,4 +40,4 @@ def orderInput():
 
 
 orderInput()
-CreateReceipt(orderInput.menu,orderInput.amountOfItem )
+
