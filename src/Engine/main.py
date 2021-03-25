@@ -1,9 +1,9 @@
 from calculate_total_cost import get_total_calc
 
 costs = {
-    'Coffee': {'type': 'float', 'value': 2.50},
-    'Service Charge': {'type': 'percent', 'value': 0.05},
-    'VAT': {'type': 'percent', 'value': 0.20}
+    'Coffee': {'type': 'float', 'cost': 'item', 'value': 2.50},
+    'Service Charge': {'type': 'percent', 'cost': 'charge', 'value': 0.05},
+    #'VAT': {'type': 'percent', 'cost': 'charge', 'value': 0.20}
 }
 
 discounts = {
