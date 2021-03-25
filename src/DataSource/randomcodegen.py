@@ -19,7 +19,7 @@ def order_number_generator():
       if newcode in order_number:
          newcode = ordercode()
       else:
-         inuse = False
+         number_in_use = False
          order_number_file = open("resource\Entities\ordernum.txt", "a")
          order_number_file.write("\n"+ newcode)
          order_number_file.close

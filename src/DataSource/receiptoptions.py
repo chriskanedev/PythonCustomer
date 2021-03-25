@@ -3,7 +3,7 @@ def email_get():
     print("emailing " + emailaddress)
     print("in full application printer will be called here")
 
-def print_or_email()
+def print_or_email():
     print("by defult this application gives digital recipts ")
     printoptions = input("Do you want a paper recipt, Y/N ")
     if printoptions == "Y":
