@@ -1,11 +1,12 @@
 from Basket import *
+from viewresipt import CreateReceipt
 
 
 def orderInput():
 
     orderInput.menu = {}
     orderInput.amountOfItem = {}
-    with open("menu.txt", "r") as file:
+    with open("resource\Entities\menu.txt", "r") as file:
         for data in file.readlines():
             data = data.lower()
             data = data.strip()
@@ -39,3 +40,4 @@ def orderInput():
 
 
 orderInput()
+CreateReceipt(orderInput.menu,orderInput.amountOfItem )
