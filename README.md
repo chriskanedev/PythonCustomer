@@ -1,6 +1,7 @@
 # Café
 
-Introduction
+Introduction:
+
 The purpose of the application our group is working on is to create a functional ordering system for a café.  
 
 The application will allow customers to see available items and their costs from a menu, choose the item(s) and quantity each item of their order then have it displayed within a basket, including the total cost of all items within the basket and then create a receipt for the order once the order is completed. 
