@@ -1,10 +1,10 @@
 from input import *
-
+from viewresipt import CreateReceipt
 
 def basket():
-    choice = "N"
+    choice = "0"
 
-    while choice == "N":
+    while choice == "0":
         cost = 0
         print("=================")
         print("Current Basket")
@@ -22,6 +22,10 @@ def basket():
 
         if choice.upper() == "Y":
             basketEdit()
+
+        elif choice.upper() == "N":
+            CreateReceipt(orderInput.menu,orderInput.amountOfItem )
+
 
 
 def basketEdit():
@@ -60,6 +64,7 @@ def basketEdit():
 
     elif option == 3:
         basket()
+
 
     else:
         print("Error: Not a valid choice")
