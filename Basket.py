@@ -12,10 +12,10 @@ def basket():
         for product in orderInput.amountOfItem:
             if orderInput.amountOfItem[product] > 0:
                 itemCost = (orderInput.amountOfItem[product])*(orderInput.menu[product])
-                print("x" + str(orderInput.amountOfItem[product]), product,"£" + str(itemCost))
+                print("x" + str(orderInput.amountOfItem[product]), product,"£" + str("{:.2f}".format(itemCost)))
                 cost += float(orderInput.amountOfItem[product])*float(orderInput.menu[product])
         print("=================")
-        print("Total Cost: £", round(cost, 2))
+        print("Total Cost: £", "{:.2f}".format(cost))
         print("")
         print("")
         choice = input("Would you like to edit your basket?(Y/N): ")
