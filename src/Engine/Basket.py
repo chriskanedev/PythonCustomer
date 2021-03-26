@@ -71,11 +71,3 @@ def basketEdit():
 
 
 basket()
-
-
-
-
-
-
-
-
