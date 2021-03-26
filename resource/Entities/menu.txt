@@ -6,5 +6,5 @@ Soft Drink^1.20
 Cake^3.00
 Donuts^2.70
 Fish and Chips^5.00
-Chichen Pasty^4.50
+Chicken Pasty^4.50
 Sausage roll^4.50 
