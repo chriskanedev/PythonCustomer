@@ -1,8 +1,8 @@
-from src.DataSource.ordertofile import save_order_to_file
-from src.DataSource.randomcodegen import order_number_generator
+from src.DataSource.order_to_file import save_order_to_file
+from src.DataSource.order_number_gen import order_number_generator
 import sys
 
-def CreateReceipt(menu,quantity):
+def Create_Receipt(menu,quantity):
 
     order_store = True
     save_order = []
