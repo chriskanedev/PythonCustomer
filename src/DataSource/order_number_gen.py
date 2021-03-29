@@ -1,27 +1,24 @@
 import random
 
-def numgen(): #gets a random digit
-   number = random.randint(0,9)
-   return str(number)
-
-def ordercode():#makes a random 6 digit number
-   ordernum = numgen() + numgen() + numgen() + numgen() + numgen() + numgen()
-   return ordernum
+def order_code():
+   order_num = str(random.randint(1000000,1999999))
+   order_num = order_num[1:]
+   return order_num
 
 def order_number_generator():
    with open("resource\Entities\ordernum.txt") as order_number_file:
        order_number = [line.rstrip() for line in order_number_file]
        order_number_file.close
-   newcode = ordercode()
+   new_code = order_code()
    number_in_use = True
 
    while number_in_use == True:
-      if newcode in order_number:
-         newcode = ordercode()
+      if new_code in order_number:
+         new_code = order_code()
       else:
          number_in_use = False
          order_number_file = open("resource\Entities\ordernum.txt", "a")
-         order_number_file.write("\n"+ newcode)
+         order_number_file.write("\n"+ new_code)
          order_number_file.close
-         return newcode
+         return new_code
 
