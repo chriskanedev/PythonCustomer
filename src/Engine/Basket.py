@@ -1,5 +1,5 @@
 from src.Engine.input import *
-from src.Engine.viewreceipt import CreateReceipt
+from src.Engine.view_receipt import CreateReceipt
 
 def basket():
     choice = "0"
