@@ -2,7 +2,7 @@ from src.DataSource.order_adapter import order_number_adapt
 from src.DataSource.order_to_file import save_order_to_file
 import sys
 
-def Create_Receipt(menu,quantity):
+def create_receipt(menu, quantity):
 
     order_store = True
     save_order = []
@@ -11,20 +11,20 @@ def Create_Receipt(menu,quantity):
     item_selected = list(quantity.keys())
     item_price = list(menu.values())
     order_total = 0
-    index = 0
+    item_index = 0
 
     print("Order Number: #" + order_number + "\n")
     save_order.append("Order Number:" + order_number)
     for quantity in item_quantity:
        if quantity == 0:
-        index += 1
+        item_index += 1
         continue
-       print(str(item_quantity[index]) + " " + item_selected[index] + ": £" + str(item_price[index]) + "0")
-       save_order.append(item_quantity[index])
-       save_order.append(str(item_selected[index]))
-       save_order.append("£"+str(item_price[index]))
-       order_total += item_quantity[index] * item_price[index]
-       index += 1
+       print(str(item_quantity[item_index]) + " " + item_selected[item_index] + ": £" + str(item_price[item_index]) + "0")
+       save_order.append(item_quantity[item_index])
+       save_order.append(str(item_selected[item_index]))
+       save_order.append("£"+str(item_price[item_index]))
+       order_total += item_quantity[item_index] * item_price[item_index]
+       item_index += 1
     print("\nTOTAL: £" + str(order_total) + "0")
     save_order.append(order_total)
     if order_number == "TEST00":
