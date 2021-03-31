@@ -1,13 +1,5 @@
 # Café
 
-Introduction:
-
-The purpose of the application our group is working on is to create a functional ordering system for a café.  
-
-The application will allow customers to see available items and their costs from a menu, choose the item(s) and quantity each item of their order then have it displayed within a basket, including the total cost of all items within the basket and then create a receipt for the order once the order is completed. 
-
-The application will also allow café staff will be able to amend or add to the menu file within the application and the application will also create a unique order number and save these orders to a file to allow the staff to have a record of their orders saved. 
-
 Here's the link to our [Jira Kanban Board][1]
 
 [1]: https://2608436.atlassian.net/secure/RapidBoard.jspa?rapidView=1&projectKey=CAFE
