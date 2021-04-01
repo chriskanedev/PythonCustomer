@@ -1,7 +1,7 @@
-from src.Engine.input import *
-from src.Engine.view_receipt import CreateReceipt
+from src.DataSource import is_testing
+from src.Engine.view_receipt import create_receipt
 
-def basket():
+def basket(orderMenu, itemAmount):
     choice = "0"
 
     while choice == "0":
@@ -9,26 +9,34 @@ def basket():
         print("=================")
         print("Current Basket")
         print("=================")
-        for product in orderInput.amountOfItem:
-            if orderInput.amountOfItem[product] > 0:
-                itemCost = (orderInput.amountOfItem[product])*(orderInput.menu[product])
-                print("x" + str(orderInput.amountOfItem[product]), product,"£" + str("{:.2f}".format(itemCost)))
-                cost += float(orderInput.amountOfItem[product])*float(orderInput.menu[product])
+        for product in itemAmount:
+            if itemAmount[product] > 0:
+                itemCost = (itemAmount[product])*(orderMenu[product])
+                print("x" + str(itemAmount[product]), product,"£" + str("{:.2f}".format(itemCost)))
+                cost += float(itemAmount[product])*float(orderMenu[product])
         print("=================")
         print("Total Cost: £", "{:.2f}".format(cost))
         print("")
         print("")
-        choice = input("Would you like to edit your basket?(Y/N): ")
+        testing = is_testing.is_testing()
+        if testing == True:
+            choice = "N"
+        else:
+            choice = input("Would you like to edit your basket?(Y/N): ")
 
         if choice.upper() == "Y":
-            basketEdit()
+            basketEdit(orderMenu, itemAmount)
 
         elif choice.upper() == "N":
-            CreateReceipt(orderInput.menu,orderInput.amountOfItem )
+            testing = is_testing.is_testing()
+            if testing == True:
+                testingOutput = [orderMenu, itemAmount]
+                return testingOutput
+            else:
+                create_receipt(orderMenu, itemAmount)
 
 
-
-def basketEdit():
+def basketEdit(orderMenu, itemAmount, testing):
     print("==========================")
     print("1. Add item(s) to your basket")
     print("2. Remove item(s) from your basket")
@@ -41,33 +49,31 @@ def basketEdit():
 
     if option == 1:
         while edit == "Y":
-            itemSelection = orderInput("What item would you like to add to your basket?: ")
-            itemSelectionAmount = orderInput("Enter the amount of " + itemSelection + " would you like to add to your basket?: ")
-            orderInput.amountOfItem[itemSelection] = orderInput.amountOfItem[itemSelection] + int(itemSelectionAmount)
-            print("You now have x" + str(orderInput.amountOfItem[itemSelection]), itemSelection + " in your basket")
-            edit = orderInput("Would you like add anything else? Y/N: ")
+            itemSelection = input("What item would you like to add to your basket?: ")
+            itemSelectionAmount = input("Enter the amount of " + itemSelection + " would you like to add to your basket?: ")
+            itemAmount[itemSelection] = itemAmount[itemSelection] + int(itemSelectionAmount)
+            print("You now have x" + str(itemAmount[itemSelection]), itemSelection + " in your basket")
+            edit = input("Would you like add anything else? Y/N: ")
 
         if edit == "N":
-            basket()
+            basket(orderMenu, itemAmount, testing)
     elif option == 2:
         while edit == "Y":
-            itemSelection = orderInput("What item would you like to remove from your basket?: ")
-            itemSelectionAmount = orderInput("Enter the amount of " + itemSelection + " would you like to remove from your basket?: ")
-            orderInput.amountOfItem[itemSelection] = orderInput.amountOfItem[itemSelection] - int(itemSelectionAmount)
-            if orderInput.amountOfItem[itemSelection] < 0:
-                orderInput.amountOfItem[itemSelection] = 0
-            print("You now have x" + str(orderInput.amountOfItem[itemSelection]), itemSelection + " in your basket")
-            edit = orderInput("Would you like remove anything else? Y/N: ")
+            itemSelection = input("What item would you like to remove from your basket?: ")
+            itemSelectionAmount = input("Enter the amount of " + itemSelection + " would you like to remove from your basket?: ")
+            itemAmount[itemSelection] = itemAmount[itemSelection] - int(itemSelectionAmount)
+            if itemAmount[itemSelection] < 0:
+                itemAmount[itemSelection] = 0
+            print("You now have x" + str(itemAmount[itemSelection]), itemSelection + " in your basket")
+            edit = input("Would you like remove anything else? Y/N: ")
 
         if edit == "N":
-            basket()
+            basket(orderMenu, itemAmount)
 
     elif option == 3:
-        basket()
-
+        basket(orderMenu, itemAmount)
 
     else:
         print("Error: Not a valid choice")
 
 
-basket()
