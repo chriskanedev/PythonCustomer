@@ -1,17 +1,5 @@
-from calculate_total_cost import get_total_calc
+from src.Engine.food_from_menu import orderInput, inport_menu
 
-costs = {
-    'Coffee': {'type': 'float', 'cost': 'item', 'value': 2.50},
-    'Service Charge': {'type': 'percent', 'cost': 'charge', 'value': 0.05},
-    #'VAT': {'type': 'percent', 'cost': 'charge', 'value': 0.20}
-}
-
-discounts = {
-    'Eat Out to Help Out': {'type': 'percent', 'value': 0.50}
-}
-
-subtotal, total_discount, grand_total = get_total_calc(costs, discounts)
-
-print("\nSubtotal", subtotal)
-print("\nTotal Discount", total_discount)
-print("\nGrand Total", grand_total)
+#to ensure full funtionality have is testing return True
+menu = inport_menu()
+orderInput(menu)
