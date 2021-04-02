@@ -2,6 +2,7 @@ import unittest
 
 from src.Engine.view_receipt import create_receipt
 
+#to ensure value locking for testing have is_testing return True
 
 class MyTestCase(unittest.TestCase):
     def testCreateReceipt1(self):
