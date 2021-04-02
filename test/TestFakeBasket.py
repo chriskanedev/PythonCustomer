@@ -2,6 +2,7 @@ import unittest
 
 from src.Engine.Basket import *
 
+#to ensure value locking for testing have is_testing return True
 
 class basketTest(unittest.TestCase):
 
